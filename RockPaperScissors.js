@@ -58,6 +58,11 @@ if (playerInput.toLowerCase() === "scissors" && computer === "rock") {
   console.log(`Result: LOSE`);
 }
 
+if (computer === "error") {
+  console.log(`Oops!`);
+  process.exit(2);
+}
+
 process.exit(0);
 
 // TODO:
