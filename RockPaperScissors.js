@@ -1,6 +1,7 @@
 const playerInput = String(process.argv[2]);
 const option0 = String(process.argv[3]);
 
+/* */
 const fe_comInput = (max = 3, option) => {
   let retVal = "";
   switch (Math.floor(Math.random() * max)) {
@@ -29,7 +30,7 @@ if (
   console.log(
     `${playerInput}? -> Only Rock ✊, Paper ✋ or Scissors ✌️ is allowed.`
   );
-  return;
+  process.exit(2);
 }
 
 const computer = fe_comInput();
@@ -56,6 +57,8 @@ if (playerInput.toLowerCase() === "rock" && computer === "paper") {
 if (playerInput.toLowerCase() === "scissors" && computer === "rock") {
   console.log(`Result: LOSE`);
 }
+
+process.exit(0);
 
 // TODO:
 // const https = require("https");
