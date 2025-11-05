@@ -1,23 +1,13 @@
-const playerInput = String(process.argv[2]);
-const option0 = String(process.argv[3]);
+const playerInput = process.argv[2];
+const option0 = process.argv[3];
+
+const figures = ["rock", "paper", "scissors"];
+
+console.log(figures);
 
 /* */
 const fe_comInput = (max = 3, option) => {
-  let retVal = "";
-  switch (Math.floor(Math.random() * max)) {
-    case 0:
-      retVal = "rock";
-      break;
-    case 1:
-      retVal = "paper";
-      break;
-    case 2:
-      retVal = "scissors";
-      break;
-    default:
-      retVal = "error";
-  }
-  return retVal;
+  return figures[Math.floor(Math.random() * max)];
 };
 
 if (
@@ -58,33 +48,4 @@ if (playerInput.toLowerCase() === "scissors" && computer === "rock") {
   console.log(`Result: LOSE`);
 }
 
-if (computer === "error") {
-  console.log(`Oops!`);
-  process.exit(2);
-}
-
 process.exit(0);
-
-// TODO:
-// const https = require("https");
-
-// https
-//   .get(
-//     "https://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5",
-//     (resp) => {
-//       let data = "";
-
-//       // A chunk of data has been received.
-//       resp.on("data", (chunk) => {
-//         data += chunk;
-//       });
-
-//       // The whole response has been received. Print out the result.
-//       resp.on("end", () => {
-//         console.log(data);
-//       });
-//     }
-//   )
-//   .on("error", (err) => {
-//     console.log("Error: " + err.message);
-//   });
