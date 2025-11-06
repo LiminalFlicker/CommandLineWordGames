@@ -1,9 +1,12 @@
+if (process.argv[2] === undefined) {
+  console.error("Missing arguments");
+  process.exit(2);
+}
+
 const playerInput = process.argv[2];
 const option0 = process.argv[3];
 
 const figures = ["rock", "paper", "scissors"];
-
-console.log(figures);
 
 /* */
 const fe_comInput = (max = 3, option) => {
