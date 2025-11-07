@@ -32,23 +32,38 @@ console.log(`Computer chose ${computer.toUpperCase()}`);
 if (computer === playerInput) {
   console.log(`Result: DRAW`);
 }
-if (playerInput.toLowerCase() === "scissors" && computer === "paper") {
-  console.log(`Result: WIN`);
+
+if (
+  playerInput.toLowerCase() + computer === "scissorspaper" ||
+  playerInput.toLowerCase() + computer === "paperscissors"
+) {
+  if (playerInput.toLowerCase() === "scissors") {
+    console.log(`Result: WIN`);
+  } else {
+    console.log(`Result: LOSE`);
+  }
 }
-if (playerInput.toLowerCase() === "paper" && computer === "rock") {
-  console.log(`Result: LOSE`);
+
+if (
+  playerInput.toLowerCase() + computer === "paperrock" ||
+  playerInput.toLowerCase() + computer === "rockpaper"
+) {
+  if (playerInput.toLowerCase() === "paper") {
+    console.log(`Result: WIN`);
+  } else {
+    console.log(`Result: LOSE`);
+  }
 }
-if (playerInput.toLowerCase() === "rock" && computer === "scissors") {
-  console.log(`Result: WIN`);
-}
-if (playerInput.toLowerCase() === "paper" && computer === "scissors") {
-  console.log(`Result: LOSE`);
-}
-if (playerInput.toLowerCase() === "rock" && computer === "paper") {
-  console.log(`Result: WIN`);
-}
-if (playerInput.toLowerCase() === "scissors" && computer === "rock") {
-  console.log(`Result: LOSE`);
+
+if (
+  playerInput.toLowerCase() + computer === "scissorsrock" ||
+  playerInput.toLowerCase() + computer === "rockscissors"
+) {
+  if (playerInput.toLowerCase() === "rock") {
+    console.log(`Result: WIN`);
+  } else {
+    console.log(`Result: LOSE`);
+  }
 }
 
 process.exit(0);
