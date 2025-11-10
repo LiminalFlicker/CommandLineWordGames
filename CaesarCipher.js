@@ -6,7 +6,8 @@ const exitCodes = {
 
 const LETTER_NOT_FOUND = -1;
 const DEFAULT_SHIFT = 3;
-const DEBUG = true;
+const DEBUG = false;
+const SHIFT_VALUE_CHECK = false;
 
 const alphabet = [
   "a", // 0
@@ -49,11 +50,6 @@ if (process.argv[2] === undefined && process.argv[3] === undefined) {
   process.exit(exitCodes.ShellError);
 }
 
-// process.stdin.on("data", (data) => {
-//   console.log(`You typed ${data.toString()}`);
-//   process.exit();
-// });
-
 /* -> A negative shift means shift to the left.
    -> A positive shift means shift to the right */
 const shift_number = Number(process.argv[3])
@@ -62,9 +58,11 @@ const shift_number = Number(process.argv[3])
   : /* Use default shift, if input parameter value is unlucky */
     DEFAULT_SHIFT;
 
-if (Math.abs(shift_number) >= alphabet.length) {
-  console.error(`Shift parameter value ${shift_number} out of range.`);
-  process.exit(exitCodes.GeneralError);
+if (SHIFT_VALUE_CHECK) {
+  if (Math.abs(shift_number) >= alphabet.length) {
+    console.error(`Shift parameter value ${shift_number} out of range.`);
+    process.exit(exitCodes.GeneralError);
+  }
 }
 
 const sentence_array = process.argv[2].toLowerCase().split("");
