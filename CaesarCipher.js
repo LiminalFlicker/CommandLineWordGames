@@ -6,7 +6,7 @@ const exitCodes = {
 
 const LETTER_NOT_FOUND = -1;
 const DEFAULT_SHIFT = 3;
-const DEBUG = false;
+const DEBUG = true;
 
 const alphabet = [
   "a", // 0
@@ -81,7 +81,7 @@ sentence_array.forEach((letter_s) => {
   if (idx === LETTER_NOT_FOUND) {
     ciphered.push(letter_s);
   } else {
-    ciphered.push(alphabet.at(idx + shift_number));
+    ciphered.push(alphabet.at((idx + shift_number) % alphabet.length));
   }
 });
 
